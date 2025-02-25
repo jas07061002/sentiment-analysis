@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/myrealm
+
+server:
+  port: 8081
+
+keycloak:
+  client-id: myapp
+  client-secret: 5C4rCy4j9RVW5QJwPCy2KeJyxBGJCPSA
+  token-uri: http://localhost:8080/realms/myrealm/protocol/openid-connect/token
+  issuer-uri: http://localhost:8080/realms/myrealm
+
