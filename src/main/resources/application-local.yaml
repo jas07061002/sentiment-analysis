@@ -5,13 +5,13 @@ spring:
 #        jwt:
 #          issuer-uri: http://localhost:8080/realms/myrealm
   rabbitmq:
-    host: rabbitmq-service
+    host: localhost
     port: 5672
     username: guest
     password: guest
 
 server:
-  port: 8080
+  port: 8081
 
 #keycloak:
 #  client-id: myapp
@@ -19,4 +19,4 @@ server:
 #  token-uri: http://localhost:8080/realms/myrealm/protocol/openid-connect/token
 #  issuer-uri: http://localhost:8080/realms/myrealm
 
-static-token: ${STATIC_AUTH_TOKEN}
+static-token: STATIC_AUTH_TOKEN

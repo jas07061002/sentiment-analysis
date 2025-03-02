@@ -25,8 +25,8 @@ public class SecurityConfig {
                         authorise -> authorise.requestMatchers("/analyze-sentiment").authenticated()
                                 .anyRequest().permitAll()
                 )
-                .oauth2ResourceServer(oauth2 -> oauth2.jwt()
-                )
+           //     .oauth2ResourceServer(oauth2 -> oauth2.jwt()
+           //     )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(csrf -> csrf.disable())
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);  // Add filter;

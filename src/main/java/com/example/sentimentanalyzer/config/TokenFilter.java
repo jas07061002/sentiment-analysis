@@ -1,6 +1,5 @@
 package com.example.sentimentanalyzer.config;
 
-import com.example.sentimentanalyzer.service.KeycloakTokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,26 +19,30 @@ import java.util.Collections;
 @Slf4j
 public class TokenFilter extends OncePerRequestFilter {
 
-    @Value("${keycloak.issuer-uri}")
-    private String issuerUri;
-    private final KeycloakTokenService tokenService;
+/*    @Value("${keycloak.issuer-uri}")
+    private String issuerUri;*/
+
+    @Value("${static-token")
+    private String token;
+   /* private final KeycloakTokenService tokenService;
 
     public TokenFilter(KeycloakTokenService tokenService) {
         this.tokenService = tokenService;
-    }
+    }*/
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         if ("/analyze-sentiment".equals(request.getRequestURI())) {
             try {
-                String token = tokenService.getAccessToken();
+                //  String token = tokenService.getAccessToken();
+
                 log.debug("Setting security context with token: {}", token);
 
                 // Create a Jwt object (minimal claims for simplicity)
                 Jwt jwt = Jwt.withTokenValue(token)
                         .header("alg", "RS256")
-                        .issuer(issuerUri)
+                    ///    .issuer(issuerUri)
                         .claim("scope", "profile email")
                         .build();
 

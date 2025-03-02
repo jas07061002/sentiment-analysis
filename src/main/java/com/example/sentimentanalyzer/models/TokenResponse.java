@@ -1,3 +1,4 @@
+/*
 package com.example.sentimentanalyzer.models;
 
 import lombok.Data;
@@ -23,4 +24,4 @@ public class TokenResponse {
 
     @JsonProperty("scope")
     private String scope;
-}
+}*/
